@@ -1,6 +1,7 @@
 package com.tapadoo.alerter;
 
 import android.app.Activity;
+import android.graphics.Rect;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.tapadoo.android.R;
 
@@ -28,6 +30,8 @@ public final class Alerter {
     private static WeakReference<Activity> activityWeakReference;
 
     private Alert alert;
+
+    private View toolbar;
 
     /**
      * Constructor
@@ -102,13 +106,28 @@ public final class Alerter {
                     //Add the new Alert to the View Hierarchy
                     final ViewGroup decorView = getActivityDecorView();
                     if (decorView != null && getAlert().getParent() == null) {
-                        decorView.addView(getAlert());
+                        final Alert alert = getAlert();
+                        if (toolbar != null) {
+                            fitToToolbar(alert);
+                        }
+                        decorView.addView(alert);
                     }
                 }
             });
         }
 
         return getAlert();
+    }
+
+    /**
+     * Fit toolbar
+     *
+     * @param toolbar Toolbar view
+     * @return This Alerter
+     */
+    public Alerter fitToolbar(final View toolbar) {
+        this.toolbar = toolbar;
+        return this;
     }
 
     /**
@@ -341,6 +360,18 @@ public final class Alerter {
     }
 
     /**
+     * Sets layout of the Alert to fit toolbar
+     *
+     * @param alert The Alert
+     */
+    private void fitToToolbar(final Alert alert) {
+        final Rect rect = new Rect();
+        toolbar.getGlobalVisibleRect(rect);
+        final int topMargin = -toolbar.getResources().getDimensionPixelSize(R.dimen.alerter_alert_negative_margin_top);
+        alert.getChildAt(0).setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, rect.bottom + topMargin));
+    }
+
+    /**
      * Creates a weak reference to the calling Activity
      *
      * @param activity The calling Activity
@@ -348,4 +379,5 @@ public final class Alerter {
     private void setActivity(@NonNull final Activity activity) {
         activityWeakReference = new WeakReference<>(activity);
     }
+
 }

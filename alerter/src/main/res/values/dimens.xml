@@ -7,7 +7,7 @@
     <dimen name="alerter_padding_small">4dp</dimen>
     <dimen name="alerter_padding_half">8dp</dimen>
     <dimen name="alerter_padding_default">16dp</dimen>
-    <dimen name="alerter_alert_padding">28dp</dimen>
+    <dimen name="alerter_alert_padding">26dp</dimen>
     <dimen name="alerter_alert_negative_margin_top">-24dp</dimen>
 
     <!--Alerts-->

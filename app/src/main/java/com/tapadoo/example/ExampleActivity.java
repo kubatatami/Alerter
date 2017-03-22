@@ -12,12 +12,16 @@ import com.tapadoo.alerter.OnShowAlertListener;
 
 public class ExampleActivity extends AppCompatActivity implements View.OnClickListener {
 
+
+    private View appBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        appBar = findViewById(R.id.appBar);
         setSupportActionBar(toolbar);
 
         findViewById(R.id.btnAlertDefault).setOnClickListener(this);
@@ -92,6 +96,7 @@ public class ExampleActivity extends AppCompatActivity implements View.OnClickLi
     private void showAlertTextOnly() {
         Alerter.create(ExampleActivity.this)
                 .setText("Alert text...")
+                .fitToolbar(appBar)
                 .show();
     }
 

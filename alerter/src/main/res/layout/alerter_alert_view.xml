@@ -18,7 +18,11 @@
         android:background="@null"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:padding="@dimen/alerter_activity_horizontal_margin">
+        android:paddingTop="@dimen/alerter_activity_vertical_margin"
+        android:paddingBottom="@dimen/alerter_activity_vertical_margin"
+        android:paddingLeft="@dimen/alerter_activity_horizontal_margin"
+        android:paddingRight="@dimen/alerter_activity_horizontal_margin"
+        >
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivIcon"
@@ -37,10 +41,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/alerter_activity_horizontal_margin"
-            android:layout_marginLeft="@dimen/alerter_activity_horizontal_margin"
-            android:layout_marginRight="@dimen/alerter_activity_horizontal_margin"
-            android:layout_marginStart="@dimen/alerter_activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/alerter_padding_default"
+            android:layout_marginRight="@dimen/alerter_padding_default"
+            android:layout_marginStart="@dimen/alerter_padding_default"
+            android:layout_marginEnd="@dimen/alerter_padding_default"
             android:layout_toEndOf="@id/ivIcon"
             android:layout_toRightOf="@id/ivIcon"
             android:background="@null"
