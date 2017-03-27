@@ -26,14 +26,11 @@
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivIcon"
-            android:layout_width="@dimen/alerter_alert_icn_size"
-            android:layout_height="@dimen/alerter_alert_icn_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:scaleType="centerInside"
-            android:maxHeight="@dimen/alerter_alert_icn_size"
-            android:maxWidth="@dimen/alerter_alert_icn_size"
             android:src="@drawable/alerter_ic_notifications"
             android:tint="@android:color/white"/>
 
