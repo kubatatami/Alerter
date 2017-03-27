@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -156,6 +157,19 @@ public final class Alerter {
             getAlert().setTitle(title);
         }
 
+        return this;
+    }
+
+    /**
+     * Set the inline icon for the Alert
+     *
+     * @param textStartMarginRes Text start margin to use in the Alert
+     * @return This Alerter
+     */
+    public Alerter setTextStartMargin(@DimenRes final int textStartMarginRes) {
+        if (getAlert() != null) {
+            getAlert().setTextStartMargin(textStartMarginRes);
+        }
         return this;
     }
 

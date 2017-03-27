@@ -3,11 +3,13 @@ package com.tapadoo.alerter;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
+import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MarginLayoutParamsCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -44,6 +46,7 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     private TextView tvText;
     private ImageView ivIcon;
     private ViewGroup rlContainer;
+    private ViewGroup llAlertTextContainer;
 
     private Animation slideInAnimation;
     private Animation slideOutAnimation;
@@ -103,6 +106,7 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
 
         flBackground = (FrameLayout) findViewById(R.id.flAlertBackground);
         ivIcon = (ImageView) findViewById(R.id.ivIcon);
+        llAlertTextContainer = (ViewGroup) findViewById(R.id.llAlertTextContainer);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvText = (TextView) findViewById(R.id.tvText);
         rlContainer = (ViewGroup) findViewById(R.id.rlContainer);
@@ -364,6 +368,18 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
      */
     public void setIcon(final Drawable drawable) {
         ivIcon.setImageDrawable(drawable);
+    }
+
+    /**
+     * Set the inline icon for the Alert
+     *
+     * @param textStartMarginRes Text start margin to use in the Alert
+     */
+    public void setTextStartMargin(@DimenRes final int textStartMarginRes) {
+        MarginLayoutParamsCompat.setMarginStart(
+                (MarginLayoutParams) llAlertTextContainer.getLayoutParams(),
+                getResources().getDimensionPixelOffset(textStartMarginRes)
+        );
     }
 
     /**
