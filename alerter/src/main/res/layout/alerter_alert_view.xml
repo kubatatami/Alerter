@@ -31,6 +31,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:scaleType="centerInside"
             android:maxHeight="@dimen/alerter_alert_icn_size"
             android:maxWidth="@dimen/alerter_alert_icn_size"
             android:src="@drawable/alerter_ic_notifications"

@@ -2,6 +2,7 @@ package com.tapadoo.alerter;
 
 import android.app.Activity;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
@@ -223,6 +224,20 @@ public final class Alerter {
     public Alerter setIcon(@DrawableRes final int iconId) {
         if (getAlert() != null) {
             getAlert().setIcon(iconId);
+        }
+
+        return this;
+    }
+
+    /**
+     * Set the Alert's Icon
+     *
+     * @param drawable The Drawable's
+     * @return This Alerter
+     */
+    public Alerter setIcon(final Drawable drawable) {
+        if (getAlert() != null) {
+            getAlert().setIcon(drawable);
         }
 
         return this;
